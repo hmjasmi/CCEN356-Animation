@@ -1,0 +1,19 @@
+# Manim render output
+media/
+**/media/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Rendered videos/gifs (uncomment if you don't want to version these)
+# *.mp4
+# *.gif
