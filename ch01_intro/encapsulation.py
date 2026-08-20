@@ -69,11 +69,11 @@ class Encapsulation(Scene):
         self.wait(0.3)
 
         steps_down = [
-            (1, "Transport adds header H<sub>t</sub>  →  segment",
+            (1, "Transport adds header Hₜ  →  segment",
              build_packet(header_box("t", HT_COLOR), message_box())),
-            (2, "Network adds header H<sub>n</sub>  →  datagram",
+            (2, "Network adds header Hₙ  →  datagram",
              build_packet(header_box("n", HN_COLOR), header_box("t", HT_COLOR), message_box())),
-            (3, "Link adds header H<sub>l</sub>  →  frame",
+            (3, "Link adds header Hₗ  →  frame",
              build_packet(header_box("l", HL_COLOR), header_box("n", HN_COLOR),
                            header_box("t", HT_COLOR), message_box())),
         ]
@@ -104,11 +104,11 @@ class Encapsulation(Scene):
         # so the packet without H_l lives at the network row, without H_n at
         # the transport row, and without H_t at the application row.
         strip_steps = [
-            (3, "Link layer strips H<sub>l</sub>",
+            (3, "Link layer strips Hₗ",
              build_packet(header_box("n", HN_COLOR), header_box("t", HT_COLOR), message_box())),
-            (2, "Network layer strips H<sub>n</sub>",
+            (2, "Network layer strips Hₙ",
              build_packet(header_box("t", HT_COLOR), message_box())),
-            (1, "Transport layer strips H<sub>t</sub>",
+            (1, "Transport layer strips Hₜ",
              message_box()),
         ]
         for row, text, stripped_packet in strip_steps:

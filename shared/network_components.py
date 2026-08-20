@@ -411,7 +411,9 @@ def header_box(tag, color, width=0.4, height=0.4, font_size=18):
     ('t', 'n', 'l', ...); the box is labeled 'H<tag>'."""
     box = Rectangle(width=width, height=height, fill_color=color, fill_opacity=1,
                      stroke_width=1, stroke_color=NODE_STROKE)
-    lbl = Text(f"H{tag}", font_size=font_size, color=BLACK)
+    subscripts = {"t": "ₜ", "n": "ₙ", "l": "ₗ"}
+    label = f"H{subscripts.get(tag, tag)}"
+    lbl = Text(label, font_size=font_size, color=BLACK)
     lbl.move_to(box)
     return VGroup(box, lbl)
 
